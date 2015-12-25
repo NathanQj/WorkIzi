@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1><%= @titre %></h1>
+
+<ul>
+  <li><%= link_to "S'inscrire", "users/new", :class => "signup_button round" %></li>
+  <li><%= link_to "Bibliothèque", "pages/lybrary", :class => "signup_button round" %></li>
+  <li><%= link_to "Ajouter un livre", "books/new", :class => "signup_button round" %></li>
+</ul>

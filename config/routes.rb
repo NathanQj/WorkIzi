@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root :to => 'pages#home'
+
+  get 'users/new'
+
   get 'pages/home'
 
   get 'pages/library'
