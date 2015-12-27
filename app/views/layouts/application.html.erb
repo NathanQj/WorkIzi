@@ -11,17 +11,17 @@
     <header>
       <nav>
         <ul>
-          <li><%= link_to "S'inscrire", '/signup' %></li>
-          <li><%= link_to "Bibliothèque", '/library' %></li>
+          <li><%= link_to "S'inscrire", '/users/new' %></li>
+          <li><%= link_to "Bibliothèque", '/books' %></li>
           <li><%= link_to "Ajouter un livre", "books/new" %></li>
         </ul>
       </nav>
-
     </header>
 
     <%= yield %>
 
 
     <script src="//netdna.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/js/bootstrap.min.js"></script>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
