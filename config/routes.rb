@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
 
   get 'users/new'
-
   get 'pages/home'
-
   get 'pages/library'
+
+  match '/signup', :to => 'users#new', :via => [:get], :as => 'signup'
+  match '/library', :to => 'pages#library', :via => [:get], :as => 'library'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= @titre %></title>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/css/bootstrap.min.css" rel="stylesheet">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title><%= @titre %></title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/css/bootstrap.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to "S'inscrire", '/signup' %></li>
+          <li><%= link_to "Bibliothèque", '/library' %></li>
+          <li><%= link_to "Ajouter un livre", "books/new" %></li>
+        </ul>
+      </nav>
 
-<%= yield %>
+    </header>
+
+    <%= yield %>
 
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/js/bootstrap.min.js"></script>
-</body>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/js/bootstrap.min.js"></script>
+  </body>
 </html>
