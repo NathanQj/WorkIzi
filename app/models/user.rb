@@ -11,6 +11,11 @@
 #
 require 'digest'
 class User < ActiveRecord::Base
+  attr_accessor :password
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
