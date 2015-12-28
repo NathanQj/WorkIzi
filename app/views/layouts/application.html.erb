@@ -12,12 +12,22 @@
     <header>
       <nav>
         <ul>
-          <li><%= link_to "S'inscrire", '/users/new' %></li>
+          <li><%= link_to "Accueil", root_path %></li>
+          <% if signed_in? %>
+              <li><%= link_to "Profil", current_user %></li>
+          <% end %>
           <li><%= link_to "Bibliothèque", '/books' %></li>
           <li><%= link_to "Ajouter un livre", "books/new" %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Déconnexion", signout_path %></li>
+          <% else %>
+            <li><%= link_to "S'identifier", signin_path %></li>
+          <% end %>
         </ul>
       </nav>
     </header>
+
+
     <div class="container">
       <section>
         <% flash.each do |key, value| %>
