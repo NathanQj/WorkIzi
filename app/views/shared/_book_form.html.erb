@@ -1,0 +1,11 @@
+<%= form_for(@book) do |f| %>
+    <div class="field">
+      <%= f.text_area :titre %>
+    </div>
+    <div class="field">
+      <%= f.text_area :auteur %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Soumettre" %>
+    </div>
+<% end %>

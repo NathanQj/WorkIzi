@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="book">
+    <span class="titre"><%= book.titre %></span>
+    <span class="auteur"><%= book.auteur %></span>
+    <span class="borrowed"><%= book.borrowed_by %></span>
+  </div>
+  <% if current_user?(book.user) %>
+      <div>
+        <%= link_to "supprimer", book, :method => :delete,
+                    :confirm => "Etes-vous certain ?",
+                    :title => book.titre %>
+      </div>
+  <% end %>
+</div>

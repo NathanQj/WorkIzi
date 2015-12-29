@@ -1,6 +1,23 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.nom %>
-</h1>
+<div class="profile">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>
+        <p><%= @user.nom %></p><br />
+        <%= gravatar_for @user %>
+      </h1>
+      <p>URL du profil : </p> <%= link_to user_path(@user), @user %><br />
+      <p>Livres : <%= @user.books.count %></p>
+    </div>
+    <div class="col-md-9">
+      <% unless @user.books.empty? %>
+          <div class="livres" summary="Livres de l'utilisateur">
+            <%= render @books %>
+          </div>
+          <%= will_paginate @books %>
+      <% end %>
+    </div>
+  </div>
 
-<%= @user.nom %>, <%= @user.email %>
+
+
+</div>

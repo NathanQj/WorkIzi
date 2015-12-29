@@ -1,1 +1,22 @@
-<h1><%= @titre %></h1>
+<% if signed_in? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="book">Liste des livres</h1>
+          <%= render 'shared/book_form' %>
+          <%= render 'shared/feed' %>
+        </div>
+        <div class="col-md-6">
+          <%= render 'shared/user_info' %>
+        </div>
+      </div>
+    </div>
+<% else %>
+    <h1>App</h1>
+
+    <p>
+      Page d'accueil de la bibliothèque
+    </p>
+
+    <%= link_to "S'inscrire !", signup_path, :class => "signup_button round" %>
+<% end %>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="gravatar">
+    <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+  </div>
+  <div class="micropost">
+    <span class="user">
+      <%= link_to feed_item.user.nom, feed_item.user %>
+    </span>
+    <span class="content"><%= feed_item.titre %></span>
+  </div>
+  <% if current_user?(feed_item.user) %>
+      <td>
+        <%= link_to "supprimer", feed_item, :method => :delete,
+                    :confirm => "Etes-vous certain ?",
+                    :title => feed_item.titre %>
+      </td>
+  <% end %>
+</div>

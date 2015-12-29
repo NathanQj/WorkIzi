@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
+  has_many :books, :dependent => :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -46,6 +47,10 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
+  end
+
+  def feed
+    Book.where("user_id = ?", id)
   end
 
   private

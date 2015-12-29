@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titre: MyString
+  auteur: MyString
+  borrowed_by: MyString
+  user_id: 1
+
+two:
+  titre: MyString
+  auteur: MyString
+  borrowed_by: MyString
+  user_id: 1
