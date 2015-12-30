@@ -1,19 +1,15 @@
 <% if signed_in? %>
-    <div class="container">
+      <%= render 'shared/book_form' %>
       <div class="row">
-        <div class="col-md-6">
-          <h1 class="book">Liste des livres</h1>
-          <%= render 'shared/book_form' %>
+        <div class="col-md-4">
           <%= render 'shared/feed' %>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
           <%= render 'shared/user_info' %>
         </div>
       </div>
-    </div>
 <% else %>
     <h1>App</h1>
-
     <p>
       Page d'accueil de la bibliothèque
     </p>

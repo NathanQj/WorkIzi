@@ -1,11 +1,17 @@
 <%= form_for(@book) do |f| %>
-    <div class="field">
-      <%= f.text_area :titre %>
-    </div>
-    <div class="field">
-      <%= f.text_area :auteur %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Soumettre" %>
-    </div>
+    <h2>Ajouter un livre à votre bibliothèque :</h2>
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="titre">Titre : </label>
+        <%= f.text_field :titre %>
+      </div>
+      <div class="form-group">
+        <label for="auteur">Auteur : </label>
+        <%= f.text_field :auteur %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Créer" %>
+      </div>
+    </form>
 <% end %>

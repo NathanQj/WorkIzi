@@ -5,7 +5,7 @@
         <p><%= @user.nom %></p><br />
         <%= gravatar_for @user %>
       </h1>
-      <p>URL du profil : </p> <%= link_to user_path(@user), @user %><br />
+      <p>URL du profil :  <%= link_to user_path(@user), @user %></p><br />
       <p>Livres : <%= @user.books.count %></p>
     </div>
     <div class="col-md-9">

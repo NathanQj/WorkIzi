@@ -1,8 +1,7 @@
-<div class="container">
   <div class="gravatar">
     <%= link_to gravatar_for(feed_item.user), feed_item.user %>
   </div>
-  <div class="micropost">
+  <div class="books">
     <span class="user">
       <%= link_to feed_item.user.nom, feed_item.user %>
     </span>
@@ -15,4 +14,3 @@
                     :title => feed_item.titre %>
       </td>
   <% end %>
-</div>

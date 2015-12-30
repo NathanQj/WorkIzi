@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
 
   get 'pages/home'
-  get 'pages/library'
 
+  get '/books' => 'books#create'
   get '/signup' => 'users#new'
   get '/signin' => 'sessions#new'
   get '/signout' => 'sessions#destroy'
