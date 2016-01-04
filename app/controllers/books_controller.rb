@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
-  before_action :correct_user,   only: [:edit, :update, :destroy]
-  before_filter :set_book, :only => [:show, :edit, :update]
+  before_filter :set_book, :only => [:show, :edit, :update, :destroy]
 
 
   def book_params
@@ -35,7 +34,7 @@ class BooksController < ApplicationController
   def update
     if @book.update_attributes(book_params)
       flash[:success] = "Livre édité"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -55,11 +54,6 @@ class BooksController < ApplicationController
     end
   end
 
-  def correct_user
-    @user = User.find(params[:id])
-    @book = Book.find(params[:user_id])
-    redirect_to(root_url) unless @user == @book
-  end
 
   def set_book
     @book = Book.find(params[:id])

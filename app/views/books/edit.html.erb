@@ -3,16 +3,14 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@book) do |f| %>
-        <%= render 'shared/error_messages' %>
-
-        <p>Titre : <%= f.label :titre %></p>
+        <p><%= f.label :titre %> :</p>
         <%= f.text_field :titre, class: 'form-control' %>
 
-        <p>Auteur : <%= f.label :auteur %></p>
-        <%= f.email_field :auteur, class: 'form-control' %>
+        <p><%= f.label :auteur %> :</p>
+        <%= f.text_field :auteur, class: 'form-control' %>
 
-        <p>Prêté à : <%= f.label :borrowed_by %></p>
-        <%= f.password_field :borrowed_by, class: 'form-control' %>
+        <p><%= f.label :borrowed_by %> :</p>
+        <%= f.text_field :borrowed_by, class: 'form-control' %>
 
         <%= f.submit "Confirmer", class: "btn btn-primary" %>
     <% end %>
