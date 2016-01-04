@@ -1,11 +1,20 @@
 class BooksController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
-  before_filter :authorized_user, :only => :destroy
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_filter :set_book, :only => [:show, :edit, :update]
+
 
   def book_params
     params.require(:book).permit(:titre, :auteur, :borrowed_by)
+  end
+
+  def show
+    @titre = @book.nom
+  end
+
+  def new
+    @book = Book.new
+    @title = "Ajouter un livre"
   end
 
   def create
@@ -20,11 +29,10 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @title = "Editer un livre"
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
       flash[:success] = "Livre édité"
       redirect_to @user
@@ -40,11 +48,6 @@ class BooksController < ApplicationController
 
   private
 
-  def authorized_user
-    @book = Book.find(params[:id])
-    redirect_to root_path unless current_user?(@book.user)
-  end
-
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Connectez-vous."
@@ -58,5 +61,8 @@ class BooksController < ApplicationController
     redirect_to(root_url) unless @user == @book
   end
 
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
 end

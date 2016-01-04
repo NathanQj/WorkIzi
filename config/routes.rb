@@ -3,13 +3,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :books, :only => [:create, :destroy]
+  resources :books
 
   root :to => 'pages#home'
 
   get 'pages/home'
 
-  get '/books' => 'books#create'
   get '/signup' => 'users#new'
   get '/signin' => 'sessions#new'
   get '/signout' => 'sessions#destroy'
